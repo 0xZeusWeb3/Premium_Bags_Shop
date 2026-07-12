@@ -31,7 +31,7 @@ export default function Navbar({ showCart = true, showAccount = true }) {
   return (
     <>
       <nav className="nav">
-        <Link to="/shop" className="nav-brand">Scatch.</Link>
+        <Link to="/shop" className="nav-brand">LuxeCarry</Link>
         <ul className="nav-links">
           <li><Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''}>Home</Link></li>
           <li><Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''}>Products</Link></li>
