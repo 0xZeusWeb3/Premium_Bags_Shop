@@ -9,42 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
-    <div class="auth-page">
-      <!-- Left: Sign Up -->
-      <div class="auth-left">
-        <p class="auth-brand">welcome to <strong>Scatch</strong></p>
-        <p class="auth-subtitle">create your account</p>
-        <form class="auth-form" id="signup-form" novalidate>
-          <div id="signup-msg" class="auth-msg"></div>
-          <input class="form-input" type="text" id="signup-name" placeholder="Full Name" required />
-          <input class="form-input" type="email" id="signup-email" placeholder="Email" required />
-          <input class="form-input" type="password" id="signup-password" placeholder="Password" required minlength="6" />
-          <button type="submit" class="btn btn-primary" id="signup-btn">
-            Create My Account
-          </button>
-        </form>
-      </div>
-
-      <!-- Divider -->
-      <div class="auth-or-divider">
-        <div class="auth-or-circle">or</div>
-      </div>
-
-      <!-- Right: Login -->
-      <div class="auth-right">
-        <p class="auth-form-title">Login your account</p>
-        <form class="auth-form" id="login-form" novalidate>
-          <div id="login-msg" class="auth-msg"></div>
-          <input class="form-input" type="email" id="login-email" placeholder="Email" required />
-          <input class="form-input" type="password" id="login-password" placeholder="Password" required />
-          <button type="submit" class="btn btn-primary" id="login-btn">
-            Login
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <div id="toast-container"></div>
-    <script type="module" src="/main.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
