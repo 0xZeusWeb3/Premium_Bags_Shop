@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel. — Premium Bags</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="/shop.html" class="nav-brand">Admin Panel.</a>
+      <ul class="nav-links">
+        <li><a href="/shop.html">Home</a></li>
+        <li><a href="/shop.html">Products</a></li>
+        <li>
+          <a href="/cart.html" class="nav-cart-wrap">
+            Cart
+            <span class="cart-count-badge" id="cart-count"></span>
+          </a>
+        </li>
+        <li><a href="#" id="logout-link">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Admin Layout -->
+    <div class="admin-layout">
+      <!-- Sidebar -->
+      <aside class="admin-sidebar">
+        <button class="admin-nav-btn active" data-section="all-products">All Products</button>
+        <button class="admin-nav-btn" data-section="create-product">Create New Product</button>
+      </aside>
+
+      <!-- Main -->
+      <main class="admin-main">
+        <!-- All Products -->
+        <section class="admin-section active" id="section-all-products">
+          <h2 class="admin-section-title">All Products</h2>
+          <div id="products-table-wrap">
+            <div class="loading-grid" style="display:flex; padding:60px 0;">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Create Product -->
+        <section class="admin-section" id="section-create-product">
+          <h2 class="admin-section-title">Create New Product</h2>
+
+          <form id="create-form" novalidate style="max-width:600px;">
+            <div id="create-msg" class="auth-msg" style="margin-bottom:16px;"></div>
+
+            <p class="section-sub-title">Product Details</p>
+
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+              <label class="file-btn-label">
+                Select File
+                <input type="file" accept="image/*" id="product-image-file" hidden />
+              </label>
+              <span style="font-size:0.8rem; color:var(--neutral-400);" id="file-name-display">No file chosen</span>
+            </div>
+            <img class="img-preview" id="img-preview" src="" alt="Preview" />
+
+            <div class="form-group" style="margin-bottom:14px; margin-top:16px;">
+              <label class="form-label">Product Name</label>
+              <input class="form-input" type="text" id="product-name" placeholder="e.g. Clinge Bag" required />
+            </div>
+
+            <div class="form-grid-2" style="margin-bottom:14px;">
+              <div class="form-group">
+                <label class="form-label">Product Price (&#8377;)</label>
+                <input class="form-input" type="number" id="product-price" placeholder="1200" min="0" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Discount Price (&#8377;)</label>
+                <input class="form-input" type="number" id="product-discount" placeholder="Optional" min="0" />
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:14px;">
+              <label class="form-label">Category</label>
+              <select class="form-input select-pill" id="product-category" style="background:var(--neutral-50);">
+                <option value="all">All Products</option>
+                <optgroup label="Women's Collection">
+                  <option value="Handbags">Handbags</option>
+                  <option value="Tote Bags">Tote Bags</option>
+                  <option value="Shoulder Bags">Shoulder Bags</option>
+                  <option value="Crossbody Bags">Crossbody Bags</option>
+                  <option value="Clutch Bags">Clutch Bags</option>
+                  <option value="Mini Bags">Mini Bags</option>
+                  <option value="Bucket Bags">Bucket Bags</option>
+                  <option value="Hobo Bags">Hobo Bags</option>
+                </optgroup>
+                <optgroup label="Men's Collection">
+                  <option value="Backpacks">Backpacks</option>
+                  <option value="Messenger Bags">Messenger Bags</option>
+                  <option value="Laptop Bags">Laptop Bags</option>
+                  <option value="Briefcases">Briefcases</option>
+                  <option value="Sling Bags">Sling Bags</option>
+                  <option value="Duffel Bags">Duffel Bags</option>
+                </optgroup>
+                <optgroup label="Travel">
+                  <option value="Travel Bags">Travel Bags</option>
+                  <option value="Weekender Bags">Weekender Bags</option>
+                  <option value="Cabin Bags">Cabin Bags</option>
+                  <option value="Rolling Luggage">Rolling Luggage</option>
+                  <option value="Garment Bags">Garment Bags</option>
+                </optgroup>
+                <optgroup label="Accessories">
+                  <option value="Wallets">Wallets</option>
+                  <option value="Card Holders">Card Holders</option>
+                  <option value="Cosmetic Bags">Cosmetic Bags</option>
+                  <option value="Toiletry Bags">Toiletry Bags</option>
+                  <option value="Pouches">Pouches</option>
+                  <option value="Key Holders">Key Holders</option>
+                </optgroup>
+                <option value="new">New Collection</option>
+                <option value="discounted">Discounted</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom:14px;">
+              <label class="filter-check" style="font-size:0.875rem; color:var(--neutral-700);">
+                <input type="checkbox" id="product-best-seller" />
+                Mark as Best Seller
+              </label>
+            </div>
+
+            <p class="section-sub-title">Panel Details</p>
+
+            <div class="form-grid-2" style="margin-bottom:14px;">
+              <div class="form-group">
+                <label class="form-label">Background Color</label>
+                <div class="color-row">
+                  <input type="color" id="bg-color" value="#f5d5c0" />
+                  <input class="form-input" type="text" id="bg-color-text" value="#f5d5c0" style="flex:1;" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Panel Color</label>
+                <div class="color-row">
+                  <input type="color" id="panel-color" value="#e8c4a8" />
+                  <input class="form-input" type="text" id="panel-color-text" value="#e8c4a8" style="flex:1;" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:24px;">
+              <label class="form-label">Text Color</label>
+              <div class="color-row">
+                <input type="color" id="text-color" value="#1a1a1a" />
+                <input class="form-input" type="text" id="text-color-text" value="#1a1a1a" style="flex:1; max-width:200px;" />
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:24px;">
+              <label class="form-label">Image URL <span style="font-weight:400; text-transform:none; letter-spacing:0;">(Pexels link — used if no file selected)</span></label>
+              <input class="form-input" type="url" id="product-image-url" placeholder="https://images.pexels.com/..." />
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="create-btn">
+              Create Product
+            </button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast-container"></div>
+    <script type="module" src="/admin.js"></script>
+  </body>
+</html>

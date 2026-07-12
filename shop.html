@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop. — Premium Bags</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="/shop.html" class="nav-brand">Shop.</a>
+      <ul class="nav-links">
+        <li><a href="/shop.html" class="active">Home</a></li>
+        <li><a href="/shop.html">Products</a></li>
+        <li>
+          <a href="/cart.html" class="nav-cart-wrap">
+            Cart
+            <span class="cart-count-badge" id="cart-count"></span>
+          </a>
+        </li>
+        <li><a href="#" id="account-link">My account</a></li>
+      </ul>
+    </nav>
+
+    <!-- Layout -->
+    <div class="shop-layout">
+      <!-- Sidebar -->
+      <aside class="shop-sidebar">
+        <div class="sidebar-section">
+          <p class="sidebar-label">Collection</p>
+          <ul class="sidebar-nav" id="category-nav">
+            <li class="active-marker"><a href="#" data-cat="all" class="active">All Products</a></li>
+            <li class="cat-group">
+              <a href="#" class="cat-group-toggle" data-group="women">Women's Collection</a>
+              <ul class="cat-sub">
+                <li><a href="#" data-cat="Handbags">Handbags</a></li>
+                <li><a href="#" data-cat="Tote Bags">Tote Bags</a></li>
+                <li><a href="#" data-cat="Shoulder Bags">Shoulder Bags</a></li>
+                <li><a href="#" data-cat="Crossbody Bags">Crossbody Bags</a></li>
+                <li><a href="#" data-cat="Clutch Bags">Clutch Bags</a></li>
+                <li><a href="#" data-cat="Mini Bags">Mini Bags</a></li>
+                <li><a href="#" data-cat="Bucket Bags">Bucket Bags</a></li>
+                <li><a href="#" data-cat="Hobo Bags">Hobo Bags</a></li>
+              </ul>
+            </li>
+            <li class="cat-group">
+              <a href="#" class="cat-group-toggle" data-group="men">Men's Collection</a>
+              <ul class="cat-sub">
+                <li><a href="#" data-cat="Backpacks">Backpacks</a></li>
+                <li><a href="#" data-cat="Messenger Bags">Messenger Bags</a></li>
+                <li><a href="#" data-cat="Laptop Bags">Laptop Bags</a></li>
+                <li><a href="#" data-cat="Briefcases">Briefcases</a></li>
+                <li><a href="#" data-cat="Sling Bags">Sling Bags</a></li>
+                <li><a href="#" data-cat="Duffel Bags">Duffel Bags</a></li>
+              </ul>
+            </li>
+            <li class="cat-group">
+              <a href="#" class="cat-group-toggle" data-group="travel">Travel</a>
+              <ul class="cat-sub">
+                <li><a href="#" data-cat="Travel Bags">Travel Bags</a></li>
+                <li><a href="#" data-cat="Weekender Bags">Weekender Bags</a></li>
+                <li><a href="#" data-cat="Cabin Bags">Cabin Bags</a></li>
+                <li><a href="#" data-cat="Rolling Luggage">Rolling Luggage</a></li>
+                <li><a href="#" data-cat="Garment Bags">Garment Bags</a></li>
+              </ul>
+            </li>
+            <li class="cat-group">
+              <a href="#" class="cat-group-toggle" data-group="accessories">Accessories</a>
+              <ul class="cat-sub">
+                <li><a href="#" data-cat="Wallets">Wallets</a></li>
+                <li><a href="#" data-cat="Card Holders">Card Holders</a></li>
+                <li><a href="#" data-cat="Cosmetic Bags">Cosmetic Bags</a></li>
+                <li><a href="#" data-cat="Toiletry Bags">Toiletry Bags</a></li>
+                <li><a href="#" data-cat="Pouches">Pouches</a></li>
+                <li><a href="#" data-cat="Key Holders">Key Holders</a></li>
+              </ul>
+            </li>
+            <li><a href="#" data-cat="new">New Collection</a></li>
+            <li><a href="#" data-cat="best-sellers">Best Sellers</a></li>
+            <li><a href="#" data-cat="discounted">Discounted Products</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <p class="sidebar-label">Filter by</p>
+          <label class="filter-check">
+            <input type="checkbox" id="filter-available" checked />
+            Availability
+          </label>
+          <label class="filter-check" style="margin-top:6px;">
+            <input type="checkbox" id="filter-discount" />
+            Discount
+          </label>
+        </div>
+      </aside>
+
+      <!-- Products -->
+      <main class="shop-main">
+        <div class="shop-toolbar">
+          <span class="shop-toolbar-label">sort by :</span>
+          <select class="select-pill" id="sort-select">
+            <option value="popular">Popular</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <div class="empty-state">
+            <div class="loading-grid">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Logout modal -->
+    <div class="modal-overlay" id="logout-modal">
+      <div class="modal">
+        <p class="modal-title">Sign out</p>
+        <p class="modal-body">Are you sure you want to sign out of your account?</p>
+        <div class="modal-actions">
+          <button class="btn btn-outline" id="logout-cancel">Cancel</button>
+          <button class="btn btn-dark" id="logout-confirm">Sign out</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <script type="module" src="/shop.js"></script>
+  </body>
+</html>
