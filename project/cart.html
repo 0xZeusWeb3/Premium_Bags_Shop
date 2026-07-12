@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart. — Premium Bags</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="/shop.html" class="nav-brand">Cart.</a>
+      <ul class="nav-links">
+        <li><a href="/shop.html">Home</a></li>
+        <li><a href="/shop.html">Products</a></li>
+      </ul>
+    </nav>
+
+    <!-- Cart Layout -->
+    <div class="cart-layout">
+      <!-- Items Column -->
+      <div class="cart-items-col" id="cart-items-col">
+        <div class="loading-grid" style="padding:80px 0; justify-content:center; display:flex;">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <!-- Summary Column -->
+      <div class="cart-summary-col">
+        <div class="price-section">
+          <p class="price-section-title">Price Breakdown</p>
+          <div class="price-row">
+            <span>Total MRP</span>
+            <span class="val" id="summary-mrp">&#8377; 0</span>
+          </div>
+          <div class="price-row">
+            <span>Discount on MRP</span>
+            <span class="val" id="summary-discount">&#8377; 0</span>
+          </div>
+          <div class="price-row">
+            <span>Platform Fee</span>
+            <span class="val" id="summary-platform">&#8377; 20</span>
+          </div>
+          <div class="price-row">
+            <span>Shipping Fee</span>
+            <span class="val">FREE</span>
+          </div>
+        </div>
+        <hr class="price-divider" />
+        <div class="price-total">
+          <span>Total Amount</span>
+          <span class="total-val" id="summary-total">&#8377; 0</span>
+        </div>
+        <button class="btn btn-dark" style="width:100%;" id="place-order-btn" disabled>
+          Place Order
+        </button>
+        <p id="order-msg" style="margin-top:12px; font-size:0.85rem; text-align:center; display:none;"></p>
+      </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal-overlay" id="order-modal">
+      <div class="modal">
+        <p class="modal-title">Order Placed!</p>
+        <p class="modal-body">
+          Your order has been placed successfully. We'll process and ship it within 3–5 business days.
+        </p>
+        <div class="modal-actions">
+          <a href="/shop.html" class="btn btn-dark">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <script type="module" src="/cart.js"></script>
+  </body>
+</html>
